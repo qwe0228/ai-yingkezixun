@@ -203,7 +203,26 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 .clawd-back-wrap{margin:18px 0 0 0;}
 .clawd-back-btn{display:inline-block;padding:10px 16px;border:1px solid rgba(0,0,0,.12);border-radius:10px;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.08);text-decoration:none;color:inherit;font-weight:600;cursor:pointer;pointer-events:auto;}
 .clawd-back-btn:hover{background:#f7f7f7;}
-</style></head>
+</style><style id="docx-feature-grid-css">
+/* Fix layout for /p/533 Featured Business: render icon boxes as 3-col grid (2 rows) */
+.docx-feature-grid{
+  display:grid !important;
+  grid-template-columns:repeat(3, minmax(0, 1fr)) !important;
+  gap:24px !important;
+  align-items:stretch;
+}
+/* Ensure children don't force full-width flex stacking */
+.docx-feature-grid > .e-con-full{
+  width:auto !important;
+}
+@media (max-width: 1024px){
+  .docx-feature-grid{grid-template-columns:repeat(2, minmax(0, 1fr)) !important;}
+}
+@media (max-width: 767px){
+  .docx-feature-grid{grid-template-columns:1fr !important;}
+}
+</style>
+</head>
 <body class="wp-singular page-template-default page page-id-527 wp-custom-logo wp-embed-responsive wp-theme-blocksy translatepress-zh_HK elementor-default elementor-kit-1201 elementor-page elementor-page-527 ct-elementor-default-template" data-footer="type-1" data-header="type-1:sticky" data-link="type-2" data-prefix="single_page" itemscope="itemscope" itemtype="https://schema.org/WebPage">
 <a class="skip-link screen-reader-text" href="/p/527/#main">Skip to content</a><div class="ct-drawer-canvas" data-location="start"><div aria-label="Offcanvas modal" class="ct-panel ct-header" data-behaviour="modal" id="offcanvas" inert="" role="dialog">
 <div class="ct-panel-actions">
@@ -280,7 +299,7 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 </div>
 </div>
 <div class="elementor-element elementor-element-d5f7470 e-flex e-con-boxed e-con e-parent" data-element_type="container" data-id="d5f7470" data-settings='{"background_background":"classic"}'>
-<div class="e-con-inner"><div class="elementor-element elementor-element-e5ede9f e-con-full ct-iconbox e-flex e-con e-child" data-element_type="container" data-id="docx-biz-1" data-settings='{"background_background":"classic"}'>
+<div class="e-con-inner docx-feature-grid"><div class="elementor-element elementor-element-e5ede9f e-con-full ct-iconbox e-flex e-con e-child" data-element_type="container" data-id="docx-biz-1" data-settings='{"background_background":"classic"}'>
 <div class="elementor-element elementor-element-92c0b31 elementor-view-default elementor-position-top elementor-mobile-position-top elementor-widget elementor-widget-icon-box" data-element_type="widget" data-id="92c0b31" data-widget_type="icon-box.default">
 <div class="elementor-icon-box-wrapper">
 <div class="elementor-icon-box-icon">
