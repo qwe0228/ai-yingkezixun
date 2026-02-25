@@ -203,7 +203,12 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 .clawd-back-wrap{margin:18px 0 0 0;}
 .clawd-back-btn{display:inline-block;padding:10px 16px;border:1px solid rgba(0,0,0,.12);border-radius:10px;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.08);text-decoration:none;color:inherit;font-weight:600;cursor:pointer;pointer-events:auto;}
 .clawd-back-btn:hover{background:#f7f7f7;}
-</style></head>
+</style><style id="docx-bri-clickall">
+/* Make the whole BRI card clickable */
+#post-527 .ct-iconbox{cursor:pointer;}
+#post-527 .ct-iconbox a{position:relative; z-index:2;}
+</style>
+</head>
 
 
 <body class="wp-singular page-template-default page page-id-527 wp-custom-logo wp-embed-responsive wp-theme-blocksy translatepress-zh_HK elementor-default elementor-kit-1201 elementor-page elementor-page-527 ct-elementor-default-template" data-link="type-2" data-prefix="single_page" data-header="type-1:sticky" data-footer="type-1" itemscope="itemscope" itemtype="https://schema.org/WebPage">
@@ -599,5 +604,27 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 </script>
 <script src="/wp-content/plugins/elementor/assets/js/frontend.min.js" id="elementor-frontend-js"></script>
 
+<script id="docx-bri-clickall-js">
+(function(){
+  function wire(){
+    var cards=document.querySelectorAll('#post-527 .ct-iconbox');
+    cards.forEach(function(card){
+      if(card.__wired) return;
+      card.__wired=true;
+      card.addEventListener('click', function(ev){
+        // ignore if clicking a link directly
+        var a = ev.target.closest('a');
+        if(a && a.getAttribute('href')) return;
+        var link = card.querySelector('a.home-box-link');
+        if(link && link.getAttribute('href')){
+          window.location.href = link.getAttribute('href');
+        }
+      });
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', wire);
+  else wire();
+})();
+</script>
 </body>
 </html>
