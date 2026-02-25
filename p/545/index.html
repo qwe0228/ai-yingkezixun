@@ -214,22 +214,26 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 .elementor-element-8999560 p{line-height:1.85;}
 </style>
 <style id="docx-about-green">
-/* About section on /p/545: green hero, ensure no inner white layer covers it */
-.elementor-element-738aad4.e-parent,
-.elementor-element-738aad4.e-parent > .e-con-inner{
-  background:#0b7a5a !important;
-}
+/* About section on /p/545: full-width green hero block */
 .elementor-element-738aad4.e-parent{
+  display:block !important;
+  width:100% !important;
+  box-sizing:border-box !important;
+  background-color:#0b7a5a !important;
   padding:72px 0 !important;
+  position:relative;
+  z-index:1;
 }
 .elementor-element-738aad4.e-parent > .e-con-inner{
+  display:block !important;
+  width:100% !important;
+  box-sizing:border-box !important;
+  background-color:#0b7a5a !important;
   padding:0 16px !important;
 }
-/* Force all inner containers to be transparent */
-.elementor-element-738aad4.e-parent .e-con,
-.elementor-element-738aad4.e-parent .e-con-inner,
+/* Make inner blocks transparent so green shows through */
 .elementor-element-738aad4.e-parent .elementor-element{
-  background:transparent !important;
+  background-color:transparent !important;
 }
 .elementor-element-738aad4.e-parent .elementor-heading-title{
   color:#ffffff !important;
@@ -244,9 +248,7 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
   margin:0 auto;
   line-height:1.9;
 }
-.elementor-element-738aad4.e-parent .elementor-widget-button{
-  margin-top:22px;
-}
+.elementor-element-738aad4.e-parent .elementor-widget-button{margin-top:22px;}
 .elementor-element-738aad4.e-parent .elementor-button{
   background:#ffffff !important;
   color:#0b7a5a !important;
