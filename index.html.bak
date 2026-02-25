@@ -491,7 +491,7 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 				<div class="elementor-element elementor-element-3282b3f elementor-widget elementor-widget-heading" data-id="3282b3f" data-element_type="widget" data-widget_type="heading.default">
 					<h2 class="elementor-heading-title elementor-size-default">誠聘英才</h2>				</div>
 				<div class="elementor-element elementor-element-505e02b elementor-widget elementor-widget-text-editor" data-id="505e02b" data-element_type="widget" data-widget_type="text-editor.default">
-									<p>我們尋找敢於挑戰的志同道合的夥伴！提供具有競爭力的薪酬、全球化項目機會及扁平化管理環境。</p>								</div>
+									<p>我們尋找敢於挑戰數字媒體邊界的夥伴！提供具有競爭力的薪酬、全球化項目機會及扁平化管理環境。</p>								</div>
 					</div>
 				</div>
 		<div class="elementor-element elementor-element-6b9b200 e-flex e-con-boxed e-con e-parent" data-id="6b9b200" data-element_type="container">
@@ -505,11 +505,16 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 
 									<h3 class="elementor-icon-box-title">
 						<span  >
-							海外市場擴展經理						</span>
+							海外市場拓展經理（東南亞方向）						</span>
 					</h3>
 				
 									<p class="elementor-icon-box-description">
-負責全球重點區域市場佈局與商務擴展，對接中外企業跨境合作、項目落地與資源整合。</p>
+						<b>職責：</b>
+主導印尼、越南市場的本土化內容戰略；
+搭建當地KOL與媒體合作網絡。<br>
+<b>要求：</b>
+精通英語+至少一門東南亞語言；
+有TikTok/Instagram本地化運營經驗者優先。					</p>
 				
 			</div>
 			
@@ -525,11 +530,16 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 
 									<h3 class="elementor-icon-box-title">
 						<span  >
-							數據分析師						</span>
+							數據分析師（數字內容方向）						</span>
 					</h3>
 				
 									<p class="elementor-icon-box-description">
-依託海量資源與風險模型，開展數據挖掘、趨勢建模與量化分析，為決策提供專業數據支撐。</p>
+						<b>職責：</b>
+通過用戶行為數據優化內容分發策略；
+開發“內容爆款預測”模型。<br>
+<b>要求：</b>
+熟練使用Python/SQL，熟悉媒體行業指標（如CTR、Watch Time）；
+對亞洲社交媒體趨勢敏感。					</p>
 				
 			</div>
 			
@@ -545,11 +555,16 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 
 									<h3 class="elementor-icon-box-title">
 						<span  >
-							多語內容編輯（阿拉伯與/印地語）						</span>
+							多語內容編輯（阿拉伯語/印地語）						</span>
 					</h3>
 				
 									<p class="elementor-icon-box-description">
-負責阿拉伯語、印地語區域信息編譯與研究，輸出多語種報告與諮詢，打通中東、南亞語言壁壘。</p>
+						職責：
+負責中東/南亞市場的內容本地化改編；
+參與跨文化創意策劃。<br>
+要求：
+母語級目標語言能力+流利英語；
+熟悉宗教/民俗文化禁忌（加分項）。					</p>
 				
 			</div>
 			
@@ -565,11 +580,16 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 
 									<h3 class="elementor-icon-box-title">
 						<span  >
-							跨國研究專員（中東/南亞市場）						</span>
+							跨文化内容专员（中东 / 南亚市场）						</span>
 					</h3>
 				
 									<p class="elementor-icon-box-description">
-專注中東、南亞政治經濟與投資環境研究，提供國別風險、市場機會與本地化策略諮詢。</p>
+						职责：
+负责中东 / 南亚市场内容本地化改编
+参与跨文化创意策划。<br>
+要求：
+目标语母语级水平 + 流利英语
+熟悉当地宗教 / 民俗文化禁忌者优先。					</p>
 				
 			</div>
 			
