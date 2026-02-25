@@ -214,23 +214,38 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 .elementor-element-8999560 p{line-height:1.85;}
 </style>
 <style id="docx-about-green">
-/* Make About section on /p/545 a green hero block like reference */
-.elementor-element-738aad4.e-parent{
+/* About section on /p/545: green hero, ensure no inner white layer covers it */
+.elementor-element-738aad4.e-parent,
+.elementor-element-738aad4.e-parent > .e-con-inner{
   background:#0b7a5a !important;
+}
+.elementor-element-738aad4.e-parent{
   padding:72px 0 !important;
+}
+.elementor-element-738aad4.e-parent > .e-con-inner{
+  padding:0 16px !important;
+}
+/* Force all inner containers to be transparent */
+.elementor-element-738aad4.e-parent .e-con,
+.elementor-element-738aad4.e-parent .e-con-inner,
+.elementor-element-738aad4.e-parent .elementor-element{
+  background:transparent !important;
 }
 .elementor-element-738aad4.e-parent .elementor-heading-title{
   color:#ffffff !important;
   text-align:center !important;
   font-size:40px;
+  margin:0 0 18px 0;
 }
 .elementor-element-738aad4.e-parent .elementor-widget-text-editor p{
   color:rgba(255,255,255,.92) !important;
   text-align:center !important;
   max-width:980px;
-  margin-left:auto;
-  margin-right:auto;
+  margin:0 auto;
   line-height:1.9;
+}
+.elementor-element-738aad4.e-parent .elementor-widget-button{
+  margin-top:22px;
 }
 .elementor-element-738aad4.e-parent .elementor-button{
   background:#ffffff !important;
