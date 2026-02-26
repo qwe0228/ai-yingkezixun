@@ -447,5 +447,45 @@ var ct_localizations = {"ajax_url":"https://www.topmediahk.com/wp-admin/admin-aj
 </script>
 <script src="../../../wp-content/themes/blocksy/static/bundle/main.js" id="ct-scripts-js"></script>
 
+<style id="ct-card-click">
+  /* Make card blocks feel clickable */
+  .ct-iconbox, .ct-iconbox .elementor-icon-box-wrapper { cursor: pointer; }
+</style>
+<script id="ct-card-click-js">
+(function(){
+  function bindCard(card){
+    if (card.__ctClickBound) return;
+    card.__ctClickBound = true;
+    card.addEventListener('click', function(e){
+      // allow normal link clicks
+      var a = e.target.closest && e.target.closest('a');
+      if (a) return;
+      var link = card.querySelector('a.home-box-link, a[href]');
+      if (link && link.getAttribute('href')) {
+        window.location.href = link.getAttribute('href');
+      }
+    });
+    card.addEventListener('keydown', function(e){
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      var link = card.querySelector('a.home-box-link, a[href]');
+      if (link && link.getAttribute('href')) {
+        window.location.href = link.getAttribute('href');
+      }
+    });
+    card.setAttribute('tabindex','0');
+    card.setAttribute('role','link');
+  }
+
+  function init(){
+    document.querySelectorAll('.ct-iconbox').forEach(bindCard);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
 </body>
 </html>
