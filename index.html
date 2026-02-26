@@ -787,5 +787,51 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
   else init();
 })();
 </script>
+
+<script id="ct-home-iconbox-click-safe-js">
+(function(){
+  function isRealHref(href){
+    if(!href) return false;
+    href = href.trim();
+    if(!href) return false;
+    if(href === '#' || href === '/#' || href.endsWith('#')) return false;
+    if(/^javascript:/i.test(href)) return false;
+    return true;
+  }
+
+  function pickLink(widget){
+    var link = widget.querySelector('.elementor-icon-box-title a[href], .elementor-icon-box-description a[href], a.home-box-link[href], a[href]');
+    if(!link) return null;
+    var href = link.getAttribute('href');
+    if(!isRealHref(href)) return null;
+    return link;
+  }
+
+  function bind(widget){
+    if(widget.__ctHomeClickBound) return;
+    var link = pickLink(widget);
+    if(!link) return;
+
+    widget.__ctHomeClickBound = true;
+    widget.style.cursor = 'pointer';
+
+    widget.addEventListener('click', function(e){
+      var a = e.target.closest && e.target.closest('a');
+      if(a) return;
+      var l = pickLink(widget);
+      if(l) window.location.href = l.getAttribute('href');
+    });
+  }
+
+  function init(){
+    // Homepage has some icon-box widgets that aren't wrapped in .ct-iconbox
+    document.querySelectorAll('.elementor-widget-icon-box').forEach(bind);
+  }
+
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+
 </body>
 </html>
