@@ -728,35 +728,62 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 //# sourceURL=elementor-frontend-js-before
 </script>
 <script src="/wp-content/plugins/elementor/assets/js/frontend.min.js" id="elementor-frontend-js"></script>
-<style id="ct-section-card-click">
-  .ct-iconbox, .ct-iconbox .elementor-icon-box-wrapper { cursor: pointer; }
+<style id="ct-card-click-safe-css">
+  .ct-iconbox[data-ct-clickable="1"],
+  .ct-iconbox[data-ct-clickable="1"] .elementor-icon-box-wrapper {
+    cursor: pointer;
+  }
 </style>
-<script id="ct-section-card-click-js">
+<script id="ct-card-click-safe-js">
 (function(){
-  function pickLink(card){
-    return card.querySelector('.elementor-icon-box-title a[href], .elementor-icon-box-description a[href], a.home-box-link[href], a[href]');
+  function isRealHref(href){
+    if(!href) return false;
+    href = href.trim();
+    if(!href) return false;
+    if(href === '#' || href === '/#' || href.endsWith('#')) return false;
+    // ignore javascript:void(0)
+    if(/^javascript:/i.test(href)) return false;
+    return true;
   }
 
-  function makeClickable(card){
-    if (card.__ctSectionClickBound) return;
-    card.__ctSectionClickBound = true;
+  function pickLink(card){
+    var link = card.querySelector('.elementor-icon-box-title a[href], .elementor-icon-box-description a[href], a.home-box-link[href], a[href]');
+    if(!link) return null;
+    var href = link.getAttribute('href');
+    if(!isRealHref(href)) return null;
+    return link;
+  }
+
+  function bind(card){
+    if(card.__ctClickBound) return;
+    var link = pickLink(card);
+    if(!link) return; // Scheme A: only enable when a real link exists
+
+    card.__ctClickBound = true;
+    card.setAttribute('data-ct-clickable','1');
+    card.setAttribute('role','link');
+    if(!card.hasAttribute('tabindex')) card.setAttribute('tabindex','0');
 
     card.addEventListener('click', function(e){
-      // Let real links behave normally
       var a = e.target.closest && e.target.closest('a');
-      if (a) return;
-      var link = pickLink(card);
-      if (link && link.getAttribute('href')) {
-        window.location.href = link.getAttribute('href');
-      }
+      if(a) return;
+      var l = pickLink(card);
+      if(l) window.location.href = l.getAttribute('href');
+    });
+
+    card.addEventListener('keydown', function(e){
+      if(e.key !== 'Enter' && e.key !== ' ') return;
+      e.preventDefault();
+      var l = pickLink(card);
+      if(l) window.location.href = l.getAttribute('href');
     });
   }
 
   function init(){
-    document.querySelectorAll('.ct-iconbox').forEach(makeClickable);
+    document.querySelectorAll('.ct-iconbox').forEach(bind);
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
 </script>

@@ -500,5 +500,64 @@ var ct_localizations = {"ajax_url":"https://www.topmediahk.com/wp-admin/admin-aj
 <script src="../../wp-content/themes/blocksy/static/bundle/main.js" id="ct-scripts-js"></script>
 <script src="../../wp-includes/js/comment-reply.min.js" id="comment-reply-js" async data-wp-strategy="async" fetchpriority="low"></script>
 
+<style id="ct-card-click-safe-css">
+  .ct-iconbox[data-ct-clickable="1"],
+  .ct-iconbox[data-ct-clickable="1"] .elementor-icon-box-wrapper {
+    cursor: pointer;
+  }
+</style>
+<script id="ct-card-click-safe-js">
+(function(){
+  function isRealHref(href){
+    if(!href) return false;
+    href = href.trim();
+    if(!href) return false;
+    if(href === '#' || href === '/#' || href.endsWith('#')) return false;
+    // ignore javascript:void(0)
+    if(/^javascript:/i.test(href)) return false;
+    return true;
+  }
+
+  function pickLink(card){
+    var link = card.querySelector('.elementor-icon-box-title a[href], .elementor-icon-box-description a[href], a.home-box-link[href], a[href]');
+    if(!link) return null;
+    var href = link.getAttribute('href');
+    if(!isRealHref(href)) return null;
+    return link;
+  }
+
+  function bind(card){
+    if(card.__ctClickBound) return;
+    var link = pickLink(card);
+    if(!link) return; // Scheme A: only enable when a real link exists
+
+    card.__ctClickBound = true;
+    card.setAttribute('data-ct-clickable','1');
+    card.setAttribute('role','link');
+    if(!card.hasAttribute('tabindex')) card.setAttribute('tabindex','0');
+
+    card.addEventListener('click', function(e){
+      var a = e.target.closest && e.target.closest('a');
+      if(a) return;
+      var l = pickLink(card);
+      if(l) window.location.href = l.getAttribute('href');
+    });
+
+    card.addEventListener('keydown', function(e){
+      if(e.key !== 'Enter' && e.key !== ' ') return;
+      e.preventDefault();
+      var l = pickLink(card);
+      if(l) window.location.href = l.getAttribute('href');
+    });
+  }
+
+  function init(){
+    document.querySelectorAll('.ct-iconbox').forEach(bind);
+  }
+
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
 </body>
 </html>
