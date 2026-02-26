@@ -641,28 +641,6 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 </script>
 <script src="/wp-content/plugins/elementor/assets/js/frontend.min.js" id="elementor-frontend-js"></script>
 
-<script id="docx-bri-clickall-js">
-(function(){
-  function wire(){
-    var cards=document.querySelectorAll('#post-527 .ct-iconbox');
-    cards.forEach(function(card){
-      if(card.__wired) return;
-      card.__wired=true;
-      card.addEventListener('click', function(ev){
-        // ignore if clicking a link directly
-        var a = ev.target.closest('a');
-        if(a && a.getAttribute('href')) return;
-        var link = card.querySelector('a.home-box-link');
-        if(link && link.getAttribute('href')){
-          window.location.href = link.getAttribute('href');
-        }
-      });
-    });
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', wire);
-  else wire();
-})();
-</script>
 <style id="ct-section-card-click">
   .ct-iconbox, .ct-iconbox .elementor-icon-box-wrapper { cursor: pointer; }
 </style>
