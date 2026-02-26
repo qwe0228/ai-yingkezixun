@@ -479,24 +479,6 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 //# sourceURL=elementor-frontend-js-before
 </script>
 <script id="elementor-frontend-js" src="/wp-content/plugins/elementor/assets/js/frontend.min.js"></script>
-<script id="make-iconbox-clickable">
-(function(){
-  function wire(){
-    document.querySelectorAll('.elementor-widget-icon-box').forEach(function(w){
-      var a = w.querySelector('a.home-box-link');
-      if(!a) return;
-      w.style.cursor='pointer';
-      w.addEventListener('click', function(ev){
-        // allow normal click on links
-        if(ev.target && ev.target.closest && ev.target.closest('a')) return;
-        window.location.href = a.getAttribute('href');
-      });
-    });
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', wire);
-  else wire();
-})();
-</script>
 <style id="ct-card-click">
   /* Make card blocks feel clickable */
   .ct-iconbox, .ct-iconbox .elementor-icon-box-wrapper { cursor: pointer; }
