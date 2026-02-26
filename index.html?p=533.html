@@ -464,20 +464,29 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 </style>
 <script id="ct-section-card-click-js">
 (function(){
+  function pickLink(card){
+    return card.querySelector('.elementor-icon-box-title a[href], .elementor-icon-box-description a[href], a.home-box-link[href], a[href]');
+  }
+
   function makeClickable(card){
     if (card.__ctSectionClickBound) return;
     card.__ctSectionClickBound = true;
+
     card.addEventListener('click', function(e){
       // Let real links behave normally
       var a = e.target.closest && e.target.closest('a');
       if (a) return;
-      var link = card.querySelector('a.home-box-link');
-      if (link && link.getAttribute('href')) window.location.href = link.getAttribute('href');
+      var link = pickLink(card);
+      if (link && link.getAttribute('href')) {
+        window.location.href = link.getAttribute('href');
+      }
     });
   }
+
   function init(){
     document.querySelectorAll('.ct-iconbox').forEach(makeClickable);
   }
+
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
