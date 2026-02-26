@@ -788,7 +788,21 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 })();
 </script>
 
-<script id="ct-home-iconbox-click-safe-js">
+
+<style id="ct-home-iconbox-overlay-css">
+  /* Make the 3 homepage icon-box cards fully clickable by overlaying a link */
+  .elementor-widget-icon-box[data-ct-overlay="1"] .elementor-icon-box-wrapper{position:relative;}
+  .elementor-widget-icon-box[data-ct-overlay="1"] a.ct-overlay-link{
+    position:absolute; inset:0;
+    z-index: 2;
+    display:block;
+    text-decoration:none;
+    color:inherit;
+  }
+  /* keep existing inner links above overlay for normal click */
+  .elementor-widget-icon-box[data-ct-overlay="1"] .elementor-icon-box-content{position:relative; z-index:3;}
+</style>
+<script id="ct-home-iconbox-overlay-js">
 (function(){
   function isRealHref(href){
     if(!href) return false;
@@ -799,39 +813,28 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
     return true;
   }
 
-  function pickLink(widget){
+  function apply(widget){
+    if(widget.getAttribute('data-ct-overlay') === '1') return;
     var link = widget.querySelector('.elementor-icon-box-title a[href], .elementor-icon-box-description a[href], a.home-box-link[href], a[href]');
-    if(!link) return null;
-    var href = link.getAttribute('href');
-    if(!isRealHref(href)) return null;
-    return link;
-  }
-
-  function bind(widget){
-    if(widget.__ctHomeClickBound) return;
-    var link = pickLink(widget);
     if(!link) return;
+    var href = link.getAttribute('href');
+    if(!isRealHref(href)) return;
 
-    widget.__ctHomeClickBound = true;
-    widget.style.cursor = 'pointer';
-
-    widget.addEventListener('click', function(e){
-      var a = e.target.closest && e.target.closest('a');
-      if(a) return;
-      var l = pickLink(widget);
-      if(l) window.location.href = l.getAttribute('href');
-    });
+    widget.setAttribute('data-ct-overlay','1');
+    var a = document.createElement('a');
+    a.className = 'ct-overlay-link';
+    a.href = href;
+    a.setAttribute('aria-label', (link.textContent||'').trim() || 'Open');
+    // If user clicks on existing inner links/buttons, let them work: overlay should be behind content.
+    widget.querySelector('.elementor-icon-box-wrapper')?.appendChild(a);
   }
 
   function init(){
-    // Homepage has some icon-box widgets that aren't wrapped in .ct-iconbox
-    document.querySelectorAll('.elementor-widget-icon-box').forEach(bind);
+    document.querySelectorAll('.elementor-widget-icon-box').forEach(apply);
   }
-
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
 </script>
-
 </body>
 </html>
