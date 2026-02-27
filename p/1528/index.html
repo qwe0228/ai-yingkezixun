@@ -198,8 +198,17 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 
 /* footer spacing: increase gaps between footer columns (keep logo column position) */
 @media (min-width: 768px) {
+  /* desktop: add horizontal gaps */
   #footer [data-row="middle"] .ct-container > [data-column="widget-area-2"] { margin-left: 84px; }
   #footer [data-row="middle"] .ct-container > [data-column="widget-area-4"] { margin-left: 56px; }
+}
+
+@media (max-width: 767px) {
+  /* mobile: columns stack vertically, so add vertical spacing */
+  #footer [data-row="middle"] .ct-container > [data-column="widget-area-2"] { margin-top: 18px; }
+  #footer [data-row="middle"] .ct-container > [data-column="widget-area-4"] { margin-top: 18px; }
+}
+#footer [data-row="middle"] .ct-container > [data-column="widget-area-4"] { margin-left: 56px; }
 }
 </style>
 			<style id='core-block-supports-inline-css'>
