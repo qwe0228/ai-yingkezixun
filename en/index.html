@@ -44,12 +44,26 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <link rel="alternate" hreflang="en" href="/"/>
 <noscript><link rel='stylesheet' href='../wp-content/themes/blocksy/static/bundle/no-scripts.min.css' type='text/css'></noscript>
 <style id="ct-main-styles-inline-css">[data-header*="type-1"] {--has-transparent-header:1;}</style>
+<style id="home-box-link-css">.home-box-link{display:block;color:inherit;text-decoration:none;}.home-box-link:hover{text-decoration:none;}</style>
 <style id="wa-qr-hover-css">
-/* WhatsApp hover QR */
+/* WhatsApp hover QR (homepage footer) */
 .wa-link{position:relative;display:inline-block;}
-.wa-link .wa-qr{display:none;position:absolute;left:0;bottom:130%;z-index:9999;background:#fff;padding:10px;border:1px solid rgba(0,0,0,.12);box-shadow:0 10px 30px rgba(0,0,0,.18);border-radius:10px;}
-.wa-link .wa-qr img{display:block;width:260px;height:auto;}
+.wa-link .wa-qr{display:none;position:absolute;left:0;bottom:125%;z-index:9999;background:#fff;padding:8px;border:1px solid rgba(0,0,0,.12);box-shadow:0 10px 30px rgba(0,0,0,.18);border-radius:8px;}
+.wa-link .wa-qr img{display:block;width:180px;height:auto;}
 .wa-link:hover .wa-qr{display:block;}
+
+<style id="hero-subtitle-css">
+/* Homepage hero text sizing */
+/* Line 1 & 2: slightly smaller (5%) to match the subtitle */
+.hero-title{display:inline-block; transform:scale(0.95); transform-origin:left top;}
+.hero-tagline{display:inline-block; transform:scale(0.95); transform-origin:left top;}
+
+/* Line 3: subtle + keep single line on desktop */
+.hero-subtitle{font-size:0.78em !important; line-height:1.35 !important; white-space:nowrap; display:inline-block;}
+@media (max-width: 600px){
+  .hero-subtitle{white-space:normal;}
+}
+</style>
 </style>
 
 <meta name="generator" content="Elementor 3.31.2; features: e_font_icon_svg, additional_custom_breakpoints, e_element_cache; settings: css_print_method-external, google_font-enabled, font_display-auto">
