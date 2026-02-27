@@ -193,7 +193,13 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 .ct-iconbox:hover .elementor-icon-box-description { 
 	fill: var(--theme-palette-color-8) !important;
 	color: var(--theme-palette-color-8) !important 
-}		</style>
+}		
+
+/* footer spacing: increase gap between Quick Nav and Contact (keep logo column position) */
+@media (min-width: 768px) {
+  #footer [data-row="middle"] .ct-container > [data-column="widget-area-4"] { margin-left: 48px; }
+}
+</style>
 			<style id='core-block-supports-inline-css'>
 .wp-container-core-columns-is-layout-28f84493{flex-wrap:nowrap;}
 /*# sourceURL=core-block-supports-inline-css */
