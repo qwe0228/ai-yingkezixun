@@ -177,22 +177,20 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 .ct-iconbox:hover .elementor-icon-box-description { 
 	fill: var(--theme-palette-color-8) !important;
 	color: var(--theme-palette-color-8) !important 
-}		
-
+}
 
 /* footer spacing: increase gaps between footer columns (keep logo column position) */
 @media (min-width: 768px) {
-  /* desktop: add horizontal gaps */
+  /* desktop: keep logo at left; keep 1->2 gap; push Contact to far right */
+  #footer [data-row="middle"] .ct-container { display:flex; align-items:flex-start; }
   #footer [data-row="middle"] .ct-container > [data-column="widget-area-2"] { margin-left: 84px; }
-  #footer [data-row="middle"] .ct-container > [data-column="widget-area-4"] { margin-left: 56px; }
+  #footer [data-row="middle"] .ct-container > [data-column="widget-area-4"] { margin-left: auto; }
 }
 
 @media (max-width: 767px) {
   /* mobile: columns stack vertically, so add vertical spacing */
   #footer [data-row="middle"] .ct-container > [data-column="widget-area-2"] { margin-top: 18px; }
   #footer [data-row="middle"] .ct-container > [data-column="widget-area-4"] { margin-top: 18px; }
-}
-#footer [data-row="middle"] .ct-container > [data-column="widget-area-4"] { margin-left: 56px; }
 }
 </style>
 			<style id='wp-block-heading-inline-css'>
