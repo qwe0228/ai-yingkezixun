@@ -53,7 +53,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 .wa-link:hover .wa-qr{display:block;}
 </style>
 <style id="hero-subtitle-css">
-/* Homepage hero subtitle: make it smaller and keep it on one line (desktop) */
+/* Homepage hero text: make 1st/2nd line slightly smaller so 3rd line doesn't feel abrupt */
+.hero-title{font-size:0.92em !important;}
+.hero-tagline{font-size:1.10em !important;}
+
+/* 3rd line: keep it subtle and single-line on desktop */
 .hero-subtitle{font-size:0.78em !important; line-height:1.35 !important; white-space:nowrap; display:inline-block;}
 @media (max-width: 600px){
   /* On phones allow wrapping to avoid overflow */
@@ -336,9 +340,9 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 					<div class="e-con-inner">
 		<div class="elementor-element elementor-element-b31876f e-con-full e-flex e-con e-child" data-id="b31876f" data-element_type="container">
 				<div class="elementor-element elementor-element-5a6a64c elementor-widget elementor-widget-heading" data-id="5a6a64c" data-element_type="widget" data-widget_type="heading.default">
-					<h2 class="elementor-heading-title elementor-size-default">贏訶諮詢</h2>				</div>
+					<h2 class="elementor-heading-title elementor-size-default hero-title">贏訶諮詢</h2>				</div>
 				<div class="elementor-element elementor-element-d2d2c5a elementor-widget elementor-widget-text-editor" data-id="d2d2c5a" data-element_type="widget" data-widget_type="text-editor.default">
-									<p><span style="font-size:1.25em; line-height:1.3; font-weight:600;">洞察全球格局     鏈接亞陸價值</span><br><span class="hero-subtitle" style="font-size:0.9em; line-height:1.5; font-weight:400;">專注全球經濟格局研判、地緣政治風險研究、戰略決策支持</span></p>								</div>
+									<p><span class="hero-tagline" style="font-size:1.25em; line-height:1.3; font-weight:600;">洞察全球格局     鏈接亞陸價值</span><br><span class="hero-subtitle" style="font-size:0.9em; line-height:1.5; font-weight:400;">專注全球經濟格局研判、地緣政治風險研究、戰略決策支持</span></p>								</div>
 		<div class="elementor-element elementor-element-8a1fd77 e-flex e-con-boxed e-con e-child" data-id="8a1fd77" data-element_type="container">
 					<div class="e-con-inner">
 				<div class="elementor-element elementor-element-a1161e3 elementor-widget elementor-widget-button" data-id="a1161e3" data-element_type="widget" data-widget_type="button.default">
