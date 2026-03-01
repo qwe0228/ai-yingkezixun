@@ -218,6 +218,11 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 .clawd-back-wrap{margin:18px 0 0 0;}
 .clawd-back-btn{display:inline-block;padding:10px 16px;border:1px solid rgba(0,0,0,.12);border-radius:10px;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.08);text-decoration:none;color:inherit;font-weight:600;cursor:pointer;pointer-events:auto;}
 .clawd-back-btn:hover{background:#f7f7f7;}
+
+/* Force hero section (title+intro+back) to stack like other service pages */
+.elementor-element-d122aab > .e-con-inner{flex-direction:column;align-items:flex-start;}
+.elementor-element-d122aab .elementor-element-5cc5834{width:100%;}/* intro */
+.elementor-element-d122aab .clawd-back-wrap{margin-left:0 !important;margin-top:12px;}
 </style><style id="docx-bri-clickall">
 /* Make the whole BRI card clickable */
 #post-527 .ct-iconbox{cursor:pointer;}
@@ -416,7 +421,7 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 					<h2 class="elementor-heading-title elementor-size-default">共建“一帶一路”·共築跨國合作新生態</h2>				</div>
 				<div class="elementor-element elementor-element-5cc5834 elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-text-editor" data-id="5cc5834" data-element_type="widget" data-widget_type="text-editor.default">
 									<p><em>我們以“一帶一路”倡議為核心框架，聚焦政策溝通、設施聯通、貿易暢通，為客户提供全鏈條、專業化、可落地的“一帶一路”綜合諮詢服務。</em></p>								</div>
-<div class="clawd-back-wrap" style="margin-left:auto;margin-top:0;">
+<div class="clawd-back-wrap">
 <a class="clawd-back-btn" data-back-btn="1" href="/" onclick="if(history.length&gt;1){history.back();}else{location.href=this.href;} return false;">← 返回上一頁</a></div>
 					</div>
 
